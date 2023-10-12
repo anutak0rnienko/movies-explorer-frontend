@@ -29,6 +29,7 @@
     line-height: normal;
     padding: 36px 0 0 0;
     opacity: 0.5;
+    cursor: pointer;
 }
 
 .promo__subtitle:hover {
@@ -43,16 +44,56 @@
 .promo__button {
     padding: 0;
     border-radius: 3px;
-    margin: 146px 0 0 0;
+    margin: 84px 0 0 0;
     border: 1px solid #FFF;
-    color: #FFF;
+    color: #FFFFFF;
     width: 129px;
     height: 36px;
     background-color: inherit;
     cursor: pointer;
     transition: .2s linear;
     font-size: 12px;
-    font-style: normal;
     font-weight: 500;
     line-height: 16px;
+}
+
+.promo__button:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 910px){
+    .promo__container {
+        padding: 141px 0 76px 0;
+    }
+
+    .promo__container-intro {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .promo__title {
+        max-width: 680px;
+        font-size: 40px;
+        line-height: 50px;
+        text-align: center;
+        padding-top: 48px;
+    }
+
+    .promo__subtitle {
+        max-width: 260px;
+        padding: 22px 0 0 0;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .promo__button {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .promo__container-intro {
+        margin-bottom: 92px;
+    }
 }

@@ -7,9 +7,8 @@ const Promo = () => {
       <section className="promo">
         <div className='promo__container'>
           <div className='promo__container-intro'>
-            <article className="promo__title">
-              <h1 className="promo__title">Учебный проект студента факультета</h1>
-              <span className='promo__title-span'>Веб-разработки.</span>
+            <article className="promo__info">
+              <h1 className="promo__title">Учебный проект студента факультета<span className='promo__title-span'> Веб-разработки.</span></h1>
               <p className="promo__subtitle">Листайте ниже, чтобы узнать больше про этот проект и его создателя.</p>
             </article>
             <img src={imgPeace} className="promo__img" alt="Изображение интернет-глобуса" />
@@ -19,4 +18,5 @@ const Promo = () => {
       </section>
     );
   };
+
   export default Promo;

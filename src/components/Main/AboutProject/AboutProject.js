@@ -20,8 +20,8 @@ const AboutProject = () => {
                 <div className='about-project__plan'>
                     <p className='about-project__backend about-project__plan-text about-project__backend_text'>1 неделя</p>
                     <p className='about-project__frontend about-project__plan-text about-project__frontend_text'>4 недели</p>
-                    <p className='about-project__backend about-project__plan-text'>Back-end</p>
-                    <p className='about-project__frontend about-project__plan-text'>Front-end</p>
+                    <p className='about-project__backend about-project__plan-text about-project__caption'>Back-end</p>
+                    <p className='about-project__frontend about-project__plan-text about-project__caption'>Front-end</p>
                 </div>
             </div>
         </section>
