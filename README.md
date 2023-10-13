@@ -1,6 +1,6 @@
 # movies-explorer-frontend
 
-Шаблон: 
+Шаблон: dark 5
 
 
 

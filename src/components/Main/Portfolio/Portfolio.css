@@ -1,7 +1,12 @@
 .portfolio {
     background-color: #202020;
     color: #FFFFFF;
-    padding: 101px 70px 125px 70px;
+    padding: 101px 0 125px ;
+}
+
+.portfolio__container {
+    width: calc(100% - 140px);
+    margin: 0 auto;
 }
 
 .portfolio__title {
@@ -55,7 +60,11 @@
 
 @media screen and (max-width: 910px){
     .portfolio {
-        padding: 90px 50px 90px 50px;
+        padding: 90px 0;
+    }
+
+    .portfolio__container {
+        width: calc(100% - 100px);
     }
 
     .portfolio__list-content {
@@ -64,5 +73,31 @@
 
     .portfolio__link {
         font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 610px){
+    .portfolio {
+        padding: 0 0 70px;
+    }
+
+    .portfolio__container {
+        width: calc(100% - 28px);
+    }
+
+    .portfolio__title {
+        font-size: 14px;
+        padding: 0 0 40px 0;
+    }
+
+    .portfolio__text {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .portfolio__link {
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: -0.72px;
     }
 }

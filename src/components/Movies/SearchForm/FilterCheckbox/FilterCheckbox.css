@@ -1,0 +1,33 @@
+.search__checkbox {
+    background-color: #202020;
+    width: 100%;
+    display: flex;
+    gap: 14px;
+}
+
+.search__film {
+    color: #FFFFFF;
+}
+
+.search__content {
+    position: relative;
+    display: inline-block;
+}
+
+.search__input {
+    display: none;
+}
+
+.search__slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 36px;
+    height: 20px;
+    border-radius: 16px;
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: #FFFFFF;
+}

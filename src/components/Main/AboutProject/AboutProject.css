@@ -1,11 +1,13 @@
 .about-project {
     background-color: #202020;
     max-width: 100%;
-    padding: 110px 70px ;
+    padding: 110px 0 ;
 }
 
 .about-project__content {
     color:  #FFF;
+    width: calc(100% - 140px);
+    margin: 0 auto;
 }
 
 .about-project__group-title {
@@ -80,7 +82,11 @@
 
 @media screen and (max-width: 910px){
     .about-project {
-        padding: 90px 50px ;
+        padding: 90px 0 ;
+    }
+
+    .about-project__content {
+        width: calc(100% - 100px);
     }
 
     .about-project__description {
@@ -95,5 +101,58 @@
 
     .about-project__plan {
         grid-template-columns: 140px 1fr;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .about-project {
+        padding: 70px 0 ;
+    }
+
+    .about-project__description {
+        flex-direction: column;
+        gap: 56px;
+        padding: 60px 0;
+    }
+
+    .about-project__content {
+        width: calc(100% - 36px);
+    }
+
+    .about-project__title {
+        font-size: 18px;
+        letter-spacing: -0.72px;
+        padding-bottom: 28px;
+    }
+
+    .about-project__subtitle {
+        font-size: 18px;
+        letter-spacing: -0.72px;
+    }
+
+    .about-project__text {
+        margin: 16px 0 0 ;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .about-project__plan {
+        grid-template-columns: 100px 1fr;
+    }
+
+    .about-project__plan-text {
+        font-size: 11px;
+    }
+
+    .about-project__backend_text {
+        padding: 11px 0 11px;
+    }
+    
+    .about-project__frontend_text {
+        padding: 11px 0 11px;
+    }
+
+    .about-project__caption {
+        margin-top: 10px;
     }
 }

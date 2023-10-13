@@ -9,8 +9,8 @@ const Footer = () => {
             <div className='footer__content'>
                 <p className="footer__text">annakornienko© 2020</p>
                 <nav className="footer__link-content">
-                    <a className='footer__link footer__link_first' href="https://practicum.yandex.ru/" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
-                    <a className='footer__link footer__link_second' href="https://github.com/anutak0rnienko" target="_blank" rel="noreferrer">Github</a>
+                    <a className='footer__link' href="https://practicum.yandex.ru/" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
+                    <a className='footer__link' href="https://github.com/anutak0rnienko" target="_blank" rel="noreferrer">Github</a>
                 </nav>
             </div>
         </footer>
