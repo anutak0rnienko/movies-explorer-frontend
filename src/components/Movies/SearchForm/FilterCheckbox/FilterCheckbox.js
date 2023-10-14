@@ -6,8 +6,8 @@ const FilterCheckbox = () => {
       <label className="search__content">
         <input className="search__input" type="checkbox" />
         <span className="search__slider" />
-        <span className="search__film">Короткометражки</span>
       </label>
+      <span className="search__film">Короткометражки</span>
     </section>
   );
 }

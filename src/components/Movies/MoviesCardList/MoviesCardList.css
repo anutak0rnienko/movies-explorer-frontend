@@ -1,0 +1,9 @@
+.movies-list {
+    background-color: #202020;
+    padding: 70px 0 30px;
+}
+
+.movies-list__container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }

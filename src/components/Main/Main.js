@@ -4,13 +4,13 @@ import Techs from './Techs/Techs';
 import AboutMe from './AboutMe/AboutMe';
 import Portfolio from './Portfolio/Portfolio';
 import Footer from '../Footer/Footer';
-import NavTab from './NavTab/NavTab';
+import Header from '../Header/Header';
 
 const Main = () => {
     return (
       <>
+      <Header backgroundColor="#073042" theme={{ default: false }} />
         <main>
-          <NavTab />
           <Promo />
           <AboutProject />
           <Techs />
