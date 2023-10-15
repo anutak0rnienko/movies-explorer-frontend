@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 import NavTab from '../Main/NavTab/NavTab';
 import { authPages } from '../../utils/constants';
+import './Header.css';
 
 const Header = ({ backgroundColor }) => {
     const headerStyle = {
@@ -15,7 +16,7 @@ const Header = ({ backgroundColor }) => {
   
     return (
       <header style={headerStyle} className="header">
-        <div className='header__contaner'>
+        <div className='header__container'>
           <Link to="/" className="header__container-logo">
             <img src={logo} className="header__logo" alt="Logo" />
           </Link>

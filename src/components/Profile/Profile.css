@@ -1,0 +1,117 @@
+.profile {
+    background-color: #202020;
+    height: calc(100vh - 74px);
+}
+
+.profile__container {
+    width: 100%;
+    max-width: 396px;
+    padding: 74px 0 70px;
+    margin: 0 auto;
+}
+
+.profile__title {
+    margin: 0;
+    color: #FFF;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.profile__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 123px;
+}
+
+.profile__form-name {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px #424242 solid;
+    padding-bottom: 16px;
+}
+
+.profile__input {
+    border: none;
+    padding: 0;
+    background-color: #202020;
+    color: #FFF;
+    text-align: right;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.profile__label-form {
+    color: #FFF;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.profile__form-email {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 17px;
+}
+
+.profile__button {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    margin-top: 220px;
+}
+
+.profile__edit-button {
+    border: none;
+    padding: 0;
+    color: #FFF;
+    background-color: #202020;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.profile__link {
+    text-decoration: none;
+    color: #EE3465;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+@media screen and (max-width: 910px) {
+    .profile__container {
+        padding: 236px 0 269px;
+    }
+
+    .profile__form {
+        margin-top: 96px;
+    }
+
+    .profile__button {
+        margin-top: 210px;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .profile {
+        box-sizing: border-box;
+    }
+
+    .profile__container {
+        max-width: 260px;
+        padding: 70px 0 40px;
+    }
+
+    .profile__form {
+        margin-top: 80px;
+    }
+
+    .profile__button {
+        margin-top: 379px;
+    }
+}

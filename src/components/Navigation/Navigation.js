@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import icon from "../../images/icon__COLOR_icon-main.svg";
+import './Navigation.css';
 
 function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,7 +49,7 @@ function Navigation() {
                         />
                     </div>
                 </Link>
-                {!isMenuOpen && (
+                {/* {!isMenuOpen && (
                     <button
                         type="button"
                         className="navigation__burger"
@@ -63,7 +64,7 @@ function Navigation() {
                         onClick={burgerMenu}
                         aria-label="Закрыть бургерное меню"
                     ></button>
-                )}
+                )} */}
             </nav>
         </>
     );

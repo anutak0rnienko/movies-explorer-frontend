@@ -13,9 +13,9 @@ const MoviesCard = ({ card }) => {
 
     return (
         <li className='card'>
-          <img src={card.image} className='card__image' alt={card.name} />
+          <img className='card__image' src={card.image} alt={card.name} />
           <div className='card__container'>
-            <div className='card__box'>
+            <div className='card__info'>
               <h2 className='card__title'>{card.name}</h2>
               {isSavedFilmsPage ? (
                 <button type='button' className='card__button-delete' aria-label='Удалить фильм'></button>
