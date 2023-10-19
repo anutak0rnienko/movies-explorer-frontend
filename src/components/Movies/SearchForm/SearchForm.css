@@ -10,6 +10,7 @@
     width: calc(100% - 140px);
     margin: 0 auto;
     border-bottom: 1px #424242 solid;
+    padding-bottom: 13px;
 }
 
 .search-form__input {
@@ -19,7 +20,6 @@
     font-weight: 500;
     line-height: normal;
     color: #424242;
-    padding-bottom: 13px;
     background-color: initial;
 }
 
@@ -32,4 +32,33 @@
     width: 34px;
     transition: opacity .2s linear;
     padding: 0;
+}
+
+@media screen and (max-width: 910px) {
+    .search-form {
+        padding: 80px 0 0;
+    }
+
+    .search-form__form {
+        width: calc(100% - 60px);
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .search-form {
+        padding: 90px 0 0;
+    }
+
+    .search-form__form {
+        width: calc(100% - 28px);
+    }
+
+    .search-form__input {
+        font-size: 18px;
+        padding-bottom: 9px;
+    }
+
+    .search-form__button {
+
+    }
 }

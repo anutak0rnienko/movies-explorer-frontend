@@ -1,6 +1,6 @@
 import './MoviesCardList.css';
 import { useState, useEffect } from 'react';
-import Preloader from '../Preloader/Preloader';
+import Preloader from '../../Preloader/Preloader';
 import MoviesCard from "../MoviesCard/MoviesCard";
 
 const MoviesCardList = ({ filmList }) => {
@@ -15,22 +15,22 @@ const MoviesCardList = ({ filmList }) => {
       }, []);
 
     return (
-        <section className="movies-list">
-          <div className="movies-list__container">
-            {/* { isLoading ? (
+        <section className="movies-card">
+          <div className="movies-card__container">
+            { isLoading ? (
           <Preloader />
         ) : (
           <>
-            <ul className='moviesCards'>
-              {filmList.map((film, index) => (
-                <MoviesCard key={index} film={film} />
+            <ul className='movies-card__content'>
+              {filmList.map((image, index) => (
+                <MoviesCard key={index} film={image} />
               ))}
             </ul>
             {filmList.length > 14 && (
-              <button className="moviesCardsList__button">Ещё</button>
+              <button className="movies-card__button">Ещё</button>
             )}
           </>
-        )} */}
+        )}
           </div>
         </section>
       );

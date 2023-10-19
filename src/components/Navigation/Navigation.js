@@ -45,14 +45,14 @@ function Navigation() {
                         <img
                             className="navigation__image"
                             src={icon}
-                            alt="профиль"
+                            alt="значок профиля"
                         />
                     </div>
                 </Link>
-                {/* {!isMenuOpen && (
+                {!isMenuOpen && (
                     <button
                         type="button"
-                        className="navigation__burger"
+                        className="navigation__burger-open"
                         onClick={burgerMenu}
                         aria-label="Открыть бургерное меню"
                     ></button>
@@ -64,7 +64,7 @@ function Navigation() {
                         onClick={burgerMenu}
                         aria-label="Закрыть бургерное меню"
                     ></button>
-                )} */}
+                )}
             </nav>
         </>
     );
