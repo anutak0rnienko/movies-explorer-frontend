@@ -1,13 +1,19 @@
+.card {
+    background-color: #222;
+    border-radius: 15px;
+    max-width: 270px;
+}
+
 .card__info {
     display: flex;
     justify-content: space-between;
-
+    padding: 0 12px 0 12px;
 }
 
 .card__container {
     display: flex;
     flex-direction: column;
-    margin-top: 14px;
+    padding-top: 14px;
 }
 
 .card__title {
@@ -25,6 +31,7 @@
     font-weight: 400;
     line-height: normal;
     margin-top: 10px;
+    padding: 0 0 14px 12px;
 }
 
 
@@ -41,6 +48,21 @@
   
 .card__button_active {
     background-color: #3DDC84;
+}
+
+.card__button-delete {
+    background-image: url(../../../images/d8.svg);
+    border: none;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    transition: opacity 0.3s linear;
+}
+
+.card__button-delete:hover {
+    opacity: 0.5;
 }
   
 @media screen and (max-width: 910px) {

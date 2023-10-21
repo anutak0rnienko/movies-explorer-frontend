@@ -62,6 +62,10 @@
     color: #FFF;
 }
 
+.about-me__link:hover {
+    opacity: 0.5;
+}
+
 .about-me__photo {
     width: 270px;
     height: 327px;

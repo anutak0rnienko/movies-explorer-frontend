@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import icon from "../../images/icon__COLOR_icon-main.svg";
-import './Navigation.css';
+import "./Navigation.css";
 
 function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +54,7 @@ function Navigation() {
                         type="button"
                         className="navigation__burger-open"
                         onClick={burgerMenu}
-                        aria-label="Открыть бургерное меню"
+                        aria-label="Открыть меню"
                     ></button>
                 )}
                 {isMenuOpen && (
@@ -62,7 +62,7 @@ function Navigation() {
                         type="button"
                         className="navigation__burger-close"
                         onClick={burgerMenu}
-                        aria-label="Закрыть бургерное меню"
+                        aria-label="Закрыть меню"
                     ></button>
                 )}
             </nav>

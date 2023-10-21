@@ -102,6 +102,74 @@
     .navigation__content {
         display: none;
     }
+
+    .navigation__active {
+        width: 520px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        background-color: #202020;
+    }
+
+    .navigation__active .navigation__container {
+        margin-top: 159px;
+        row-gap: 28px;
+        align-items: center;
+        flex-direction: column;
+      }
+    
+      .navigation__active .navigation__movie {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: normal;
+        display: block;
+        position: relative;
+      }
+
+      .navigation__active .navigation__movie:hover {
+        opacity: 0.5;
+      }
+    
+      .navigation__active .navigation__movie_film {
+        border-bottom: 2px solid #FFF;
+      }
+
+      .navigation__active .navigation__burger-close {
+        background-image: url('../../images/Group.svg');
+        border: none;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 22.44px;
+        right: 22.44px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: transparent;
+        transition: opacity .3s linear;
+      }
+
+      .navigation__active .navigation__burger-close:hover {
+        opacity: 0.5;
+        transform: rotate(-45deg);
+      }
+
+      .navigation__active .navigation__content {
+        margin: 0 auto;
+        margin-bottom: 90px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
 }
 
 @media screen and (max-width: 610px) {
@@ -109,4 +177,22 @@
         width: 40px;
         height: 43px;
     }
+
+    .navigation__active {
+        width: 320px;
+    }
+
+    .navigation__active .navigation__container {
+        margin-top: 144px;
+        row-gap: 24px;
+      }
+    
+      .navigation__active .navigation__content {
+        margin-bottom: 46px;
+      }
+    
+      .navigation__active .navigation__burger-close {
+        top: 13.44px;
+        right: 13.44px;
+      }
 }

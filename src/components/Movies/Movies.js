@@ -8,7 +8,7 @@ import Header from "../Header/Header";
 const Movies = () => {
     return (
         <>
-            <Header backgroundColor="#202020" theme={{ default: false }} />
+            <Header headerColor="#202020" theme={{ default: false }} />
             <main>
                 <SeachForm />
                 <MoviesCardList filmList={filmList} />

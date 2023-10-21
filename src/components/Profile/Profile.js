@@ -3,10 +3,10 @@ import Header from "../Header/Header";
 import { Link } from "react-router-dom";
 import "./Profile.css";
 
-const Profile = () => {
+const Profile = ( { email, name } ) => {
     return (
         <>
-            <Header backgroundColor="#202020" theme={{ default: false }} />
+            <Header headerColor="#202020" theme={{ default: false }} />
             <main className="profile">
                 <div className="profile__container">
                     <h2 className="profile__title">Привет, Аня!</h2>
@@ -20,8 +20,7 @@ const Profile = () => {
                                 id="name"
                                 minLength="2"
                                 maxLength="30"
-                                disabled
-                                value="anna"
+                                value={name}
                             />
                         </div>
                         <div className="profile__form-email">
@@ -35,7 +34,7 @@ const Profile = () => {
                                 id="email"
                                 minLength="2"
                                 maxLength="30"
-                                value="anutak0rnienko@mail.ru"
+                                value={email}
                             />
                         </div>
                     </form>

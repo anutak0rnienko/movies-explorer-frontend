@@ -30,11 +30,6 @@
     line-height: normal;
     padding: 36px 0 0 0;
     opacity: 0.5;
-    cursor: pointer;
-}
-
-.promo__subtitle:hover {
-    opacity: 1;
 }
 
 .promo__img {

@@ -52,9 +52,10 @@ const Register = () => {
                         Зарегистрироваться
                     </button>
                 </form>
-                <p className="register__question">Уже зарегистрированы?
-                    <Link className="register__link" to="signin">
-                         Войти
+                <p className="register__question">
+                    Уже зарегистрированы?
+                    <Link className="register__link" to="/signin">
+                        Войти
                     </Link>
                 </p>
             </section>

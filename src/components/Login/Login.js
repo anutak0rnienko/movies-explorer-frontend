@@ -38,9 +38,10 @@ const Login = () => {
                         Войти
                     </button>
                 </form>
-                <p className="login__question">Еще не зарегистрированы?
-                    <Link className="login__link" to="signin">
-                         Регистрация
+                <p className="login__question">
+                    Еще не зарегистрированы?
+                    <Link className="login__link" to="/signup">
+                        Регистрация
                     </Link>
                 </p>
             </section>
