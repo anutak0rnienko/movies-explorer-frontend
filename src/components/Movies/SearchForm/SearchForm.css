@@ -21,6 +21,7 @@
     line-height: normal;
     color: #424242;
     background-color: initial;
+    cursor: pointer;
 }
 
 .search-form__button {

@@ -1,9 +1,9 @@
 import React from "react";
 import SeachForm from "../Movies/SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
-import filmList from "../../utils/filmList";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import { filmListCard } from "../../utils/filmList";
 
 const Movies = () => {
     return (
@@ -11,7 +11,7 @@ const Movies = () => {
             <Header headerColor="#202020" theme={{ default: false }} />
             <main>
                 <SeachForm />
-                <MoviesCardList filmList={filmList} />
+                <MoviesCardList filmList={filmListCard} />
             </main>
             <Footer />
         </>

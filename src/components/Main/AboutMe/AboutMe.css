@@ -70,7 +70,7 @@
     width: 270px;
     height: 327px;
     border-radius: 10px;
-    padding-top: 66px;
+    margin-top: 66px;
 }
 
 @media screen and (max-width: 910px){
@@ -127,8 +127,8 @@
     }
 
     .about-me__photo {
-        padding-top: 60px;
         margin: 0 auto;
+        margin-top: 60px;
         width: 292px;
         height: 352px;
     }
