@@ -1,0 +1,198 @@
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 59.3%;
+}
+
+.navigation__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    gap: 7px;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.navigation__movie {
+    color: #FFF;
+    text-decoration: none;
+}
+.navigation__movie_film {
+    font-size: 13px;    
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.navigation__movie_film:hover {
+    opacity: 0.5;
+}
+
+.navigation__movie_link {
+    text-align: right;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.navigation__movie_link:hover {
+    opacity: 0.5;
+}
+
+.navigation__container {
+    display: flex;
+    gap: 16px;
+    flex-direction: row;
+}
+
+.navigation__title {
+    margin: 0;
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 12px;
+}
+
+.navigation__title:hover {
+    opacity: 0.5;
+}
+
+.navigation__container-image {
+    width: 26px;
+    height: 26px;
+    border-radius: 50px;
+    background-color: #313131;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation__burger-open {
+    background-color: transparent;
+    background-image: url('../../images/icon__COLOR_icon-burger.svg');
+    background-size: 40px;
+    background-position: center right;
+    background-repeat: no-repeat;
+    padding: 0;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    transition: opacity .3s linear;
+    cursor: pointer;
+    display: none;
+}
+
+.navigation__burger-close {
+    display: none;
+  }
+
+@media screen and (max-width: 910px) {
+    .navigation__movie {
+        display: none;
+        color: #FFF;
+        text-decoration: none;
+    }
+
+    .navigation__burger-open {
+        display: block;
+    }
+
+    .navigation__content {
+        display: none;
+    }
+
+    .navigation__active {
+        width: 520px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        background-color: #202020;
+    }
+
+    .navigation__active .navigation__container {
+        margin-top: 159px;
+        row-gap: 28px;
+        align-items: center;
+        flex-direction: column;
+      }
+    
+      .navigation__active .navigation__movie {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: normal;
+        display: block;
+        position: relative;
+      }
+
+      .navigation__active .navigation__movie:hover {
+        opacity: 0.5;
+      }
+    
+      .navigation__active .navigation__movie_film {
+        border-bottom: 2px solid #FFF;
+      }
+
+      .navigation__active .navigation__burger-close {
+        background-image: url('../../images/Group.svg');
+        border: none;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 22.44px;
+        right: 22.44px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: transparent;
+        transition: opacity .3s linear;
+      }
+
+      .navigation__active .navigation__burger-close:hover {
+        opacity: 0.5;
+        transform: rotate(-45deg);
+      }
+
+      .navigation__active .navigation__content {
+        margin: 0 auto;
+        margin-bottom: 90px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+}
+
+@media screen and (max-width: 610px) {
+    .navigation__burger-open {
+        width: 40px;
+        height: 43px;
+    }
+
+    .navigation__active {
+        width: 320px;
+    }
+
+    .navigation__active .navigation__container {
+        margin-top: 144px;
+        row-gap: 24px;
+      }
+    
+      .navigation__active .navigation__content {
+        margin-bottom: 46px;
+      }
+    
+      .navigation__active .navigation__burger-close {
+        top: 13.44px;
+        right: 13.44px;
+      }
+}

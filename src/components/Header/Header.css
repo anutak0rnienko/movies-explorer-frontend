@@ -1,0 +1,28 @@
+.header {
+    padding: 18px 0;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1280px;
+    width: calc(100% - 140px);
+    margin: 0 auto;
+}
+
+.header__container-logo {
+    width: 38px;
+    height: 38px;
+}
+
+@media screen and (max-width: 910px) {
+    .header__container {
+        width: calc(100% - 60px);
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .header__container {
+        width: calc(100% - 28px);
+    }
+}
