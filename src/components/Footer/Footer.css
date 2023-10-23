@@ -5,9 +5,13 @@
 }
 
 .footer__container {
-    border-bottom: solid 1px #424242;
+    max-width: 1280px;
     width: calc(100% - 140px);
     margin: 0 auto;
+}
+
+.footer__info {
+    border-bottom: solid 1px #424242;
 }
 
 .footer__title {
@@ -25,7 +29,6 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    width: calc(100% - 140px);
 }
 
 .footer__text {
@@ -56,20 +59,12 @@
         padding: 79px 0 20px;
     }
 
-    .footer__content {
-        width: calc(100% - 60px);
-    }
-
     .footer__container {
         width: calc(100% - 60px);
     }
 }
 
 @media screen and (max-width: 610px) {
-    .footer__content {
-        width: calc(100% - 20px);
-    }
-
     .footer__container {
         width: calc(100% - 20px);
     }

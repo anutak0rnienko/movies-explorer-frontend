@@ -6,8 +6,9 @@
 }
 
 .about-me__content {
-    max-width: calc(100% - 140px);
     margin: 0 auto;
+    max-width: 1280px;
+    width: calc(100% - 140px);
 }
 
 .about-me__title {
@@ -79,7 +80,7 @@
     }
 
     .about-me__content {
-        max-width: calc(100% - 100px);
+        width: calc(100% - 100px);
     }
 
     .about-me__position {
@@ -113,7 +114,7 @@
     }
 
     .about-me__content {
-        max-width: calc(100% - 28px);
+        width: calc(100% - 28px);
     }
 
     .about-me__container {
