@@ -1,3 +1,4 @@
+import { MoviesApi_URL } from "../utils/constants";
 class MainApi {
     constructor(options) {
         this._url = options._url;
@@ -24,6 +25,20 @@ class MainApi {
         }).then((res) => this._checkError(res));
     }
 
+    setUserInfoApi(name, email) {
+        return fetch(`${this._url}users/me`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("jwt")}`,
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+            }),
+        }).then((res) => this._checkError(res));
+    }
+
     getMovies() {
         return fetch(`${this._url}/movies`, {
             method: "GET",
@@ -47,8 +62,8 @@ class MainApi {
                 country: data.country,
                 director: data.director,
                 description: data.description,
-                // thumbnail: `${MoviesApi_Base_URL}${data.image.url}`,
-                // image: `${MoviesApi_Base_URL}${data.image.url}`,
+                thumbnail: `${MoviesApi_URL}${data.image.url}`,
+                image: `${MoviesApi_URL}${data.image.url}`,
                 movieId: data.id,
                 trailerLink: data.trailerLink,
                 nameRU: data.nameRU,
