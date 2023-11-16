@@ -1,4 +1,5 @@
 export const BASE_URL = "https://api.domainname.annamovie.nomoredomainsrocks.ru";
+// export const BASE_URL = "http://localhost:3000";
 
 export function register(name, email, password) {
     return fetch(`${BASE_URL}/signup`, {
@@ -7,12 +8,13 @@ export function register(name, email, password) {
             Accept: "application/json",
             "Content-Type": "application/json",
         },
+        credentials: 'include',
         body: JSON.stringify({
             name: name,
             email: email,
             password: password,
         }),
-    }).then((res) => this._checkError(res));
+    }).then((res) => checkError(res));
 }
 
 export function authorize(email, password) {
@@ -24,7 +26,7 @@ export function authorize(email, password) {
             password: password,
         }),
     })
-        .then((res) => this._checkError(res))
+        .then((res) => checkError(res))
         .then((data) => {
             if (data.token) {
                 localStorage.setItem("jwt", data.token);
@@ -47,5 +49,5 @@ function checkError(res) {
     if (res.ok) {
         return res.json();
     }
-    return Promise.reject(`${res.status}`);
+    return Promise.reject(`Ошибка: ${res.status}`);
 }

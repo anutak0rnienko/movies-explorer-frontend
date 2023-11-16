@@ -37,3 +37,24 @@ export const validation = {
 export {
     MoviesApi_URL,
 };
+
+const ScreenSizeMap = {
+    xl: { cards: 16, addCardsNumber: 4 },
+    lg: { cards: 8, addCardsNumber: 2 },
+    md: { cards: 5, addCardsNumber: 2 }
+  };
+  
+  const MaxScreenSize = 1150;
+  const MinScreenSize = 720;
+  
+  const ShortFilmDuration = 40;
+  
+  export {
+    ScreenSizeMap,
+    ShortFilmDuration,
+    MaxScreenSize,
+    MinScreenSize,
+  };
+
+// export const regexName = /^[а-яА-ЯёЁa-zA-Z -]+$/u;
+// export const regexEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;

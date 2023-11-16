@@ -32,6 +32,7 @@ class MainApi {
                 "Content-Type": "application/json",
                 authorization: `Bearer ${localStorage.getItem("jwt")}`,
             },
+            credentials: 'include',
             body: JSON.stringify({
                 name: name,
                 email: email,
@@ -82,6 +83,16 @@ class MainApi {
         }).then((res) => this._checkError(res));
     }
 
+    logOut() {
+        return fetch(`${this._url}/signout`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+        });
+    }
+
     _checkError(res) {
         if (res.ok) {
             return res.json();
@@ -91,7 +102,8 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-    url: "api.domainname.annamovie.nomoredomainsrocks.ru",
+    // url: "api.domainname.annamovie.nomoredomainsrocks.ru",
+    url: "http://localhost:3000/",
 });
 
 export default mainApi;

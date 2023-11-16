@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from "react";
-import CurrentUserContext from "../../context/CurrentUserContext";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { CurrentUserContext } from "../../context/CurrentUserContext";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import mainApi from "../../utils/MainApi";
 import Main from "../Main/Main";
@@ -12,13 +12,14 @@ import Login from "../Login/Login";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
 import * as auth from "../../utils/auth";
+import { isLoggedContext } from "../../context/isLoggedContext";
 
 export default function App() {
     const navigate = useNavigate();
     const [currentUser, setCurrentUser] = useState({});
     const [loggedIn, setLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const { pathname, search } = useLocation();
+    // const { pathname, search } = useLocation();
 
     React.useEffect(() => {
         if (loggedIn) {
@@ -32,21 +33,24 @@ export default function App() {
     }, [loggedIn]);
 
     React.useEffect(() => {
-        if (loggedIn) {
-            const jwt = localStorage.getItem("jwt");
-            auth.getContent(jwt)
-                .then((res) => {
-                    if (res) {
-                        setLoggedIn(true);
-                        navigate("/", { replace: true });
-                    }
-                })
-                .catch((err) => {
-                    console.log(`Ошибка: ${err}`);
-                });
+        const jwt = localStorage.getItem("jwt")
+        console.log(jwt)
+        if (jwt) {
+          auth
+            .getContent(jwt)
+            .then((res) => {
+              if (res) {
+                setCurrentUser(res);
+                setLoggedIn(true)
+                navigate("/", { replace: true })
+              }
+            })
+            .catch((err) => {
+              console.log(`Ошибка: ${err}`);
+            })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [loggedIn]);
+      }, [navigate])
 
     function handleOnLogin(password, email) {
         auth.authorize(password, email)
@@ -66,12 +70,17 @@ export default function App() {
     };
 
     function handleOnRegister(name, email, password) {
-        auth.register(name, password, email)
+        setIsLoading(true);
+        auth.register(name, email, password)
             .then(() => {
-                navigate("/movies", { replace: true });
+                handleOnLogin(email, password);
+                navigate("/signin", { replace: true });
             })
             .catch((err) => {
                 console.log(`Ошибка: ${err}`);
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
     }
 
@@ -79,22 +88,6 @@ export default function App() {
         localStorage.removeItem("jwt");
         setLoggedIn(false);
     }
-
-    const tokenCheck = () => {
-        const jwt = localStorage.getItem("jwt");
-        if (jwt) {
-            auth.getContent(jwt)
-                .then((user) => {
-                    handleOnLoginIn(user);
-                    navigate(`${pathname}${search}`, { replace: true });
-                })
-                .catch((err) => console.log(err));
-        }
-    };
-    useEffect(() => {
-        tokenCheck();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [loggedIn]);
 
     function handleUserUpdate(user) {
         setIsLoading(true);
@@ -108,8 +101,22 @@ export default function App() {
         }
     }
 
+    function handleSignOut() {
+        setIsLoading(true);
+        try {
+            mainApi.logOut();
+            setLoggedIn(false);
+            localStorage.clear();
+        } catch (err) {
+            console.log(`Ошибка: ${err}`);
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
     return (
         <CurrentUserContext.Provider value={currentUser}>
+            <isLoggedContext.Provider value={loggedIn}>
             <div className="page">
                 <Routes>
                     <Route path="*" element={<PageNotFound />} />
@@ -150,15 +157,14 @@ export default function App() {
                                 element={Profile}
                                 signOut={signOut}
                                 loggedIn={loggedIn}
-                                // handleLogaut={handleLogaut}
+                                handleSignOut={handleSignOut}
                                 handleUserUpdate={handleUserUpdate}
                             />
                         }
                     />
                 </Routes>
             </div>
+            </isLoggedContext.Provider>
         </CurrentUserContext.Provider>
     );
 }
-
-

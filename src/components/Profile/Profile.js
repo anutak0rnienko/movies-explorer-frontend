@@ -3,35 +3,34 @@ import Header from "../Header/Header";
 import { Link } from "react-router-dom";
 import "./Profile.css";
 import useFormValidation from "../../utils/useFormValidation";
-import currentUserContext from "../../context/CurrentUserContext";
+import { CurrentUserContext } from "../../context/CurrentUserContext";
 import { useEffect, useContext } from "react";
 
-const Profile = ({ handleUserUpdate }) => {
-    const { values, setValues, handleChange, setIsValid, resetForm, errs } =
+const Profile = ({ handleUserUpdate, handleSignOut }) => {
+    const { values, setValues, handleChange, setIsValid, resetForm } =
         useFormValidation();
-    const { email, name } = values;
-    const currentUser = useContext(currentUserContext);
+    const { name, email } = values;
+    const user = useContext(CurrentUserContext);
+    console.log(values)
+
+    useEffect(() => {
+        resetForm();
+        setIsValid({ name: true, email: true });
+        setValues({ name: user.name, email: user.email });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         handleUserUpdate(values);
     };
 
-    useEffect(() => {
-        resetForm();
-        setIsValid({ name: true, email: true });
-        setValues({ name: currentUser.name, email: currentUser.email });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currentUser]);
-
     return (
         <>
             <Header headerColor="#202020" theme={{ default: false }} />
             <main className="profile">
                 <div className="profile__container">
-                    <h2 className="profile__title">
-                        Привет, {currentUser.name}!
-                    </h2>
+                    <h2 className="profile__title">{`Привет, ${user.name}!`}</h2>
                     <form className="profile__form" onSubmit={handleSubmit}>
                         <div className="profile__form-name">
                             <label className="profile__label-form">Имя</label>
@@ -66,7 +65,11 @@ const Profile = ({ handleUserUpdate }) => {
                         <button type="button" className="profile__edit-button">
                             Редактировать
                         </button>
-                        <Link to={`/`} className="profile__link">
+                        <Link
+                            to="/signin"
+                            className="profile__link"
+                            onClick={handleSignOut}
+                        >
                             Выйти из аккаунта
                         </Link>
                     </div>

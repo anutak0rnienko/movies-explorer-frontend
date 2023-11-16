@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import icon from "../../images/icon__COLOR_icon-main.svg";
 import "./Navigation.css";
 
@@ -22,22 +22,22 @@ function Navigation() {
             >
                 <div className="navigation__container">
                     {isMenuOpen && (
-                        <Link to="/" className="navigation__movie">
+                        <NavLink to="/" className="navigation__movie">
                             Главная
-                        </Link>
+                        </NavLink>
                     )}
-                    <Link
+                    <NavLink
                         to="/movies"
                         className="navigation__movie navigation__movie_film"
                     >
                         Фильмы
-                    </Link>
-                    <Link
+                    </NavLink>
+                    <NavLink
                         to="/saved-movies"
                         className="navigation__movie navigation__movie_link"
                     >
                         Сохраненные фильмы
-                    </Link>
+                    </NavLink>
                 </div>
                 <Link to="/profile" className="navigation__content">
                     <p className="navigation__title">Аккаунт</p>

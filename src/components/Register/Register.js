@@ -1,3 +1,4 @@
+import React from "react";
 import "./Register.css";
 import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
@@ -9,6 +10,9 @@ const Register = ({ onRegister }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onRegister(values.name, values.email, values.password);
+        console.log(values.name)
+        console.log(values.email)
+        console.log(values.password)
     };
 
     return (
@@ -20,8 +24,8 @@ const Register = ({ onRegister }) => {
                 <h2 className="register__title">Добро пожаловать!</h2>
                 <form
                     className="register__form"
-                    isValid={isValid}
                     onSubmit={handleSubmit}
+                    isValid={isValid}
                 >
                     <label className="register__label-form">Имя</label>
                     <input
@@ -29,7 +33,7 @@ const Register = ({ onRegister }) => {
                             errs.name && "register__input-error"
                         }`}
                         type="text"
-                        name="username"
+                        name="name"
                         id="name"
                         minLength="2"
                         maxLength="30"
@@ -56,7 +60,7 @@ const Register = ({ onRegister }) => {
                     <label className="register__label-form">Пароль</label>
                     <input
                         className={`register__input ${
-                            errs.password && "form__input-error"
+                            errs.password && "register__input-error"
                         }`}
                         type="password"
                         name="password"

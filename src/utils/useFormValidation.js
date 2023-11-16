@@ -2,7 +2,11 @@ import React from "react";
 import { validation } from "./constants";
 
 function useFormValidation() {
-    const [values, setValues] = React.useState({});
+    const [values, setValues] = React.useState({
+        name: "",
+        email: "",
+        password: "",
+    });
     const [isValid, setIsValid] = React.useState(false);
     const [errs, setErrs] = React.useState({});
 
@@ -12,9 +16,9 @@ function useFormValidation() {
         const value = target.value;
 
         switch (name) {
-            case "username":
+            case "name":
                 target.validity.patternMismatch
-                    ? target.setCustomValidity(validation.username.message)
+                    ? target.setCustomValidity(validation.name.message)
                     : target.setCustomValidity("");
                 break;
             case "email":
@@ -32,9 +36,9 @@ function useFormValidation() {
     };
 
     const resetForm = React.useCallback(
-        (newValues = {}, newErrors = {}, newValid = false) => {
+        (newValues = {}, newErrs = {}, newValid = false) => {
             setValues(newValues);
-            setErrs(newErrors);
+            setErrs(newErrs);
             setIsValid(newValid);
         },
         [setValues, setIsValid, setErrs]

@@ -34,7 +34,7 @@ const Login = ({ onLogin }) => {
                         minLength="2"
                         maxLength="30"
                         placeholder="Введите почту"
-                        value={values.email || ""}
+                        value={values.email}
                         onChange={handleChange}
                     />
                     <span className="login__error">{errs.email}</span>
@@ -50,7 +50,7 @@ const Login = ({ onLogin }) => {
                         maxLength="30"
                         required
                         placeholder="Введите пароль"
-                        value={values.password || ""}
+                        value={values.password}
                         onChange={handleChange}
                     />
                     <span className="login__error">{errs.password}</span>
