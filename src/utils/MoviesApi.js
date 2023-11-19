@@ -1,28 +1,12 @@
-class MoviesApi {
-    constructor(options) {
-        this._url = options._url;
-    }
+import { handleSendRequest } from "./utils";
 
-    getMovies() {
-        return fetch(`${this._url}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                authorization: `Bearer ${localStorage.getItem("jwt")}`,
-            },
-        }).then((res) => this._checkError(res));
-    }
+export const BASE_URL = "https://api.nomoreparties.co/beatfilm-movies";
 
-    _checkError(res) {
-        if (res.ok) {
-            return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-    }
+export function getMovies() {
+  return fetch(BASE_URL, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((res) => handleSendRequest(res));
 }
-
-export const moviesApi = new MoviesApi({
-    baseUrl: "https://api.nomoreparties.co/beatfilm-movies",
-});
-
-export default moviesApi;

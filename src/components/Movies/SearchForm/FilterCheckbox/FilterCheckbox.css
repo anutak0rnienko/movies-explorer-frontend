@@ -1,16 +1,13 @@
 .search__checkbox {
     background-color: #202020;
-}
-
-.search__container {
     width: 100%;
-    width: calc(100% - 140px);
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 33px 0 48px;
     display: flex;
     gap: 14px;
+    padding: 33px 0 48px;
     align-items: center;
+    width: calc(100% - 140px);
+    margin: 0 auto;
+    max-width: 1280px;
 }
 
 .search__film {
@@ -64,7 +61,7 @@
 }
 
 @media screen and (max-width: 910px) {
-    .search__container {
+    .search__checkbox {
         width: calc(100% - 60px);
         gap: 16px;
         padding: 30px 0 61px;
@@ -74,7 +71,7 @@
 }
 
 @media screen and (max-width: 610px) {
-    .search__container {
+    .search__checkbox {
         width: calc(100% - 60px);
         padding: 40px 0 50px;
         justify-content:center;

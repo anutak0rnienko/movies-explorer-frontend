@@ -1,82 +1,104 @@
-import React from "react";
-import Header from "../Header/Header";
-import { Link } from "react-router-dom";
+import React, { useEffect, useContext, useState } from "react";
+import CurrentUserContext from "../CurrentUserContext/CurrentUserContext";
+import useForm from "../../hooks/useForm";
 import "./Profile.css";
-import useFormValidation from "../../utils/useFormValidation";
-import { CurrentUserContext } from "../../context/CurrentUserContext";
-import { useEffect, useContext } from "react";
+import Header from "../Header/Header";
+import { EMAIL_VALIDATION } from "../../utils/constants";
 
-const Profile = ({ handleUserUpdate, handleSignOut }) => {
-    const { values, setValues, handleChange, setIsValid, resetForm } =
-        useFormValidation();
-    const { name, email } = values;
-    const user = useContext(CurrentUserContext);
-    console.log(values)
+function Profile({ loggedIn, signOut, onUpdateUser, isLoading }) {
+  const currentUser = useContext(CurrentUserContext);
+  const { enteredValues, isErrors, handleChangeInput, isFormValid, resetForm } =
+    useForm();
+  const [isLastData, setIsLastData] = useState(false);
 
-    useEffect(() => {
-        resetForm();
-        setIsValid({ name: true, email: true });
-        setValues({ name: user.name, email: user.email });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user]);
+  useEffect(() => {
+    if (currentUser) {
+      resetForm(currentUser);
+    }
+  }, [currentUser, resetForm]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        handleUserUpdate(values);
-    };
+  function handleSubmitForm(event) {
+    event.preventDefault();
+    onUpdateUser({
+      name: enteredValues.name,
+      email: enteredValues.email,
+    });
+  }
 
-    return (
-        <>
-            <Header headerColor="#202020" theme={{ default: false }} />
-            <main className="profile">
-                <div className="profile__container">
-                    <h2 className="profile__title">{`Привет, ${user.name}!`}</h2>
-                    <form className="profile__form" onSubmit={handleSubmit}>
-                        <div className="profile__form-name">
-                            <label className="profile__label-form">Имя</label>
-                            <input
-                                className="profile__input"
-                                type="text"
-                                name="username"
-                                id="name"
-                                minLength="2"
-                                maxLength="30"
-                                value={name || ""}
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className="profile__form-email">
-                            <label className="profile__label-form">
-                                E-mail
-                            </label>
-                            <input
-                                className="profile__input"
-                                type="email"
-                                name="email"
-                                id="email"
-                                minLength="2"
-                                maxLength="30"
-                                value={email || ""}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    </form>
-                    <div className="profile__button">
-                        <button type="button" className="profile__edit-button">
-                            Редактировать
-                        </button>
-                        <Link
-                            to="/signin"
-                            className="profile__link"
-                            onClick={handleSignOut}
-                        >
-                            Выйти из аккаунта
-                        </Link>
-                    </div>
-                </div>
-            </main>
-        </>
-    );
-};
+  useEffect(() => {
+    if (
+      currentUser.name === enteredValues.name &&
+      currentUser.email === enteredValues.email
+    ) {
+      setIsLastData(true);
+    } else {
+      setIsLastData(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [enteredValues]);
+
+  return (
+    <>
+      <Header loggedIn={loggedIn} />
+      <section className="profile">
+        <h3 className="profile__title">Привет, {currentUser.name}!</h3>
+        <form
+          id="form"
+          className="profile__form"
+          onSubmit={handleSubmitForm}
+          noValidate
+        >
+          <label className="profile__label">
+            Name
+            <input
+              name="name"
+              className="profile__input"
+              id="name-input"
+              type="text"
+              minLength="2"
+              maxLength="40"
+              required
+              placeholder="name"
+              onChange={handleChangeInput}
+              value={enteredValues.name || ""}
+            />
+            <span className="profile__input-error">{isErrors.name}</span>
+          </label>
+
+          <div className="profile__border"></div>
+          <label className="profile__label">
+            Email
+            <input
+              name="email"
+              className="profile__input"
+              id="email-input"
+              type="email"
+              required
+              placeholder="email"
+              onChange={handleChangeInput}
+              pattern={EMAIL_VALIDATION}
+              value={enteredValues.email || ""}
+            />
+            <span className="profile__input-error">{isErrors.email}</span>
+          </label>
+          <button
+            type="submit"
+            disabled={!isFormValid ? true : false}
+            className={
+              !isFormValid || isLoading || isLastData
+                ? "profile__button-save profile__button-save_inactive"
+                : "profile__button-save"
+            }
+          >
+            {!isFormValid ? "Редактировать" : "Сохранить"}
+          </button>
+          <button type="button" className="profile__exit" onClick={signOut}>
+            Выйти из аккаунта
+          </button>
+        </form>
+      </section>
+    </>
+  );
+}
 
 export default Profile;

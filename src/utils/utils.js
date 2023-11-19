@@ -1,37 +1,30 @@
-import { ScreenSizeMap, ShortFilmDuration, MaxScreenSize, MinScreenSize } from './constants';
+import { MAX_SHORT_FILM_LENGTH } from './constants';
 
-const updateFiltered = (movies, query, checked) => {
-  let filteredResults = [];
-
-  filteredResults = movies.filter(
-    (movie) =>
-      movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
-      movie.nameEN.toLowerCase().includes(query.toLowerCase()),
-  );
-  if (checked) {
-    filteredResults = filteredResults.filter((movie) => movie.duration <= ShortFilmDuration);
+export const handleSendRequest = (res) => {
+  if (res.ok) {
+    return res.json();
   }
-
-  return filteredResults;
+  return Promise.reject(`Error: ${res.status}`);
 };
 
-const findScreenSizeMap = (screenWidth) => {
-  if (screenWidth > MaxScreenSize) {
-    return ScreenSizeMap.xl;
-  } else if (screenWidth > MinScreenSize) {
-    return ScreenSizeMap.lg;
-  } else {
-    return ScreenSizeMap.md;
-  }
-};
+export function filterDuration(movies) {
+  return movies.filter((movie) => movie.duration < MAX_SHORT_FILM_LENGTH);
+}
 
+export function filterMovies(movies, query) {
+  const moviesQuery = movies.filter((movie) => {
+    const movieRu = String(movie.nameRU).toLowerCase().trim();
+    const movieEn = String(movie.nameEN).toLowerCase().trim();
+    const userQuery = query.toLowerCase().trim();
+    return (
+      movieRu.indexOf(userQuery) !== -1 || movieEn.indexOf(userQuery) !== -1
+    );
+  });
+  return moviesQuery;
+}
 
-const duration = (number) => {
-  const hours = Math.floor(number / 60);
-  const minutes = number % 60;
-  return `${hours}ч. ${minutes}мин.`;
-};
-
-const ErrorMessage = "Такие данные уже используются";
-
-export { updateFiltered, findScreenSizeMap, ErrorMessage, duration};
+export function durationConverter(duration) {
+  const hours = Math.floor(duration / 60);
+  const minutes = duration % 60;
+  return `${hours}ч${minutes}м`;
+}

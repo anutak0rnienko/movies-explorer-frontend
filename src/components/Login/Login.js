@@ -1,72 +1,65 @@
-import "./Login.css";
-import logo from "../../images/logo.svg";
-import { Link } from "react-router-dom";
-import useFormValidation from "../../utils/useFormValidation";
+import React from "react";
+import "../Form/Form.css";
+import Form from "../Form/Form";
+import { EMAIL_VALIDATION } from "../../utils/constants";
+import useForm from "../../hooks/useForm";
 
-const Login = ({ onLogin }) => {
-    const { values, isValid, errs, handleChange } = useFormValidation();
+function Login({ onAuthorization, isLoading }) {
+  const { enteredValues, isErrors, handleChangeInput, isFormValid } = useForm();
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        onLogin(values.email, values.password);
-    }
+  function handleSubmitForm(event) {
+    event.preventDefault();
+    onAuthorization({
+      email: enteredValues.email,
+      password: enteredValues.password,
+    });
+  }
 
-    return (
-        <main className="login">
-            <section className="login__container">
-                <Link to="/" className="login__logo-link">
-                    <img src={logo} className="login__logo" alt="Logo" />
-                </Link>
-                <h2 className="login__title">Рады видеть!</h2>
-                <form
-                    className="login__form"
-                    onSubmit={handleSubmit}
-                    isValid={isValid}
-                >
-                    <label className="login__label-form">E-mail</label>
-                    <input
-                        className={`login__input ${
-                            errs.email && "login__input-error"
-                        }`}
-                        type="email"
-                        name="email"
-                        id="email"
-                        minLength="2"
-                        maxLength="30"
-                        placeholder="Введите почту"
-                        value={values.email}
-                        onChange={handleChange}
-                    />
-                    <span className="login__error">{errs.email}</span>
-                    <label className="login__label-form">Пароль</label>
-                    <input
-                        className={`login__input  ${
-                            errs.password && "login__input-error"
-                        }`}
-                        type="password"
-                        name="password"
-                        id="password"
-                        minLength="6"
-                        maxLength="30"
-                        required
-                        placeholder="Введите пароль"
-                        value={values.password}
-                        onChange={handleChange}
-                    />
-                    <span className="login__error">{errs.password}</span>
-                    <button className="login__button" type="submit">
-                        Войти
-                    </button>
-                </form>
-                <p className="login__question">
-                    Еще не зарегистрированы?
-                    <Link className="login__link" to="/signup">
-                        Регистрация
-                    </Link>
-                </p>
-            </section>
-        </main>
-    );
-};
+  return (
+    <Form
+      title="Рады видеть!"
+      buttonText="Войти"
+      question="Еще не зарегистрированы?"
+      linkText="Регистрация"
+      link="/signup"
+      onSubmit={handleSubmitForm}
+      isDisabled={!isFormValid}
+      isLoading={isLoading}
+      noValidate
+    >
+      <label className="form__label">
+        Email
+        <input
+          name="email"
+          className="form__input"
+          id="email-input"
+          type="email"
+          required
+          placeholder="email"
+          onChange={handleChangeInput}
+          pattern={EMAIL_VALIDATION}
+          value={enteredValues.email || ""}
+        />
+        <span className="form__input-error">{isErrors.email}</span>
+      </label>
+      <label className="form__label">
+        Password
+        <input
+          name="password"
+          className="form__input"
+          id="password-input"
+          type="password"
+          required
+          placeholder="password"
+          onChange={handleChangeInput}
+          value={enteredValues.password || ""}
+          minLength="6"
+          maxLength="12"
+        />
+        <span className="form__input-error">{isErrors.password}</span>
+      </label>
+    </Form>
+  );
+}
 
 export default Login;

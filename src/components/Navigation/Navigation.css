@@ -1,198 +1,120 @@
-.navigation {
+.navigation__page-overlay {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .navigation__page-overlay {
     display: flex;
-    flex-direction: row;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 5;
     justify-content: space-between;
-    align-items: center;
-    width: 59.3%;
-}
+  }
 
-.navigation__content {
+  .navigation__menu {
+    box-sizing: border-box;
+    padding: 159px 90px 90px 90px;
+    width: 520px;
+    min-height: 100vh;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-decoration: none;
-    gap: 7px;
-    padding: 0;
+    flex-direction: column;
+    background: #202020;
     justify-content: space-between;
-}
+    position: relative;
+    align-items: center;
+  }
 
-.navigation__movie {
-    color: #FFF;
-    text-decoration: none;
-}
-.navigation__movie_film {
-    font-size: 13px;    
-    font-weight: 500;
-    line-height: 18px;
-}
+  .navigation__overlay-wrapper {
+    flex: 1 1 auto;
+  }
 
-.navigation__movie_film:hover {
-    opacity: 0.5;
-}
+  .navigation__close-button {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    background-image: url("../../images/Group.svg");
+    width: 22px;
+    height: 22px;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+  }
 
-.navigation__movie_link {
-    text-align: right;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 18px;
-}
+  .navigation__close-button:hover {
+    opacity: 0.6;
+  }
 
-.navigation__movie_link:hover {
-    opacity: 0.5;
-}
-
-.navigation__container {
+  .navigation__links-list {
     display: flex;
-    gap: 16px;
-    flex-direction: row;
-}
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
 
-.navigation__title {
-    margin: 0;
-    color: #FFF;
-    font-size: 13px;
+  .navigation__link {
+    text-decoration: none;
     font-weight: 500;
-    line-height: 12px;
-}
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #fff;
+    width: max-content;
+    border-bottom: 2px solid transparent;
+  }
 
-.navigation__title:hover {
-    opacity: 0.5;
-}
+  .navigation__link_active {
+    color: #2be080;
+  }
 
-.navigation__container-image {
-    width: 26px;
-    height: 26px;
-    border-radius: 50px;
-    background-color: #313131;
+  .navigation__link:hover {
+    border-bottom: 2px solid #fff;
+  }
+
+  .navigation__account-button {
+    text-decoration: none;
+    width: 100px;
+    height: 32px;
+    background: #202020;
+    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .navigation__account-text {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #ffffff;
+    margin-right: 10px;
+  }
+
+  .navigation__account-button:hover {
+    opacity: 0.6;
+  }
 }
 
-.navigation__burger-open {
-    background-color: transparent;
-    background-image: url('../../images/icon__COLOR_icon-burger.svg');
-    background-size: 40px;
-    background-position: center right;
-    background-repeat: no-repeat;
-    padding: 0;
-    width: 44px;
-    height: 44px;
-    border: 0;
-    transition: opacity .3s linear;
-    cursor: pointer;
-    display: none;
-}
+@media screen and (max-width: 576px) {
+  .navigation__menu {
+    padding: 144px 10px 46px 10px;
+    width: 100%;
+  }
 
-.navigation__burger-close {
+  .navigation__overlay-wrapper {
     display: none;
   }
 
-@media screen and (max-width: 910px) {
-    .navigation__movie {
-        display: none;
-        color: #FFF;
-        text-decoration: none;
-    }
-
-    .navigation__burger-open {
-        display: block;
-    }
-
-    .navigation__content {
-        display: none;
-    }
-
-    .navigation__active {
-        width: 520px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: fixed;
-        right: 0;
-        top: 0;
-        z-index: 1;
-        background-color: #202020;
-    }
-
-    .navigation__active .navigation__container {
-        margin-top: 159px;
-        row-gap: 28px;
-        align-items: center;
-        flex-direction: column;
-      }
-    
-      .navigation__active .navigation__movie {
-        font-size: 18px;
-        font-weight: 500;
-        line-height: normal;
-        display: block;
-        position: relative;
-      }
-
-      .navigation__active .navigation__movie:hover {
-        opacity: 0.5;
-      }
-    
-      .navigation__active .navigation__movie_film {
-        border-bottom: 2px solid #FFF;
-      }
-
-      .navigation__active .navigation__burger-close {
-        background-image: url('../../images/Group.svg');
-        border: none;
-        width: 30px;
-        height: 30px;
-        padding: 0;
-        cursor: pointer;
-        display: block;
-        position: absolute;
-        z-index: 1;
-        top: 22.44px;
-        right: 22.44px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-color: transparent;
-        transition: opacity .3s linear;
-      }
-
-      .navigation__active .navigation__burger-close:hover {
-        opacity: 0.5;
-        transform: rotate(-45deg);
-      }
-
-      .navigation__active .navigation__content {
-        margin: 0 auto;
-        margin-bottom: 90px;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-      }
-}
-
-@media screen and (max-width: 610px) {
-    .navigation__burger-open {
-        width: 40px;
-        height: 43px;
-    }
-
-    .navigation__active {
-        width: 320px;
-    }
-
-    .navigation__active .navigation__container {
-        margin-top: 144px;
-        row-gap: 24px;
-      }
-    
-      .navigation__active .navigation__content {
-        margin-bottom: 46px;
-      }
-    
-      .navigation__active .navigation__burger-close {
-        top: 13.44px;
-        right: 13.44px;
-      }
+  .navigation__links-list {
+    gap: 15px;
+  }
 }

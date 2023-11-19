@@ -1,86 +1,36 @@
-.navtab {
-    background-color: #073042;
-    padding: 21px 0;
+.nav-tab {
+  position: absolute;
+  bottom: 75px;
 }
 
-.navtab__container {
-    width: calc(100% - 140px);
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    max-width: 1280px;
+.nav-tab__link {
+  width: 129px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 12px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 1.5s;
 }
 
-.navtab__navigation {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 30px;
-    align-items: center;
+.nav-tab__link:hover {
+  opacity: 0.6;
 }
 
-.navtab__navigation-link {
-    text-decoration: none;
-    text-align: center;
-    transition: opacity .3s linear;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
+@media screen and (max-width: 1023px) {
+  .nav-tab {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
-.navtab__navigation-link_signup {
-    color: #FFF;
-    text-align: right;  
-    cursor: pointer;
-    padding: 8px 0;
-}
-
-.navtab__navigation-link_signup:hover {
-    opacity: 0.5;
-}
-
-.navtab__navigation-link_signin {
-    color: #000;
-    border-radius: 3px;
-    background-color: #3DDC84;
-    cursor: pointer;
-    padding: 8px 20px;
-}
-
-.navtab__navigation-link_signin:hover {
-    opacity: 0.5;
-}
-
-@media screen and (max-width: 910px){
-    .navtab {
-        max-width: 910px;
-        padding: 21px 0;
-    }
-
-    .navtab__container {
-        width: calc(100% - 60px);
-    }
-}
-
-@media screen and (max-width: 610px){
-    .navtab {
-        max-width: 610px;
-        padding: 24px 0;
-    }
-
-    .navtab__container {
-        width: calc(100% - 28px);
-    }
-
-    .navtab__navigation-link {
-        font-size: 12px;
-    }
-
-    .navtab__navigation-link_signin {
-        padding: 5px 12px;
-    }
-
-    .navtab__navigation {
-        gap: 14px;
-    }
+@media screen and (max-width: 767px) {
+  .nav-tab {
+    bottom: 30px;
+  }
 }

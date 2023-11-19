@@ -1,6 +1,7 @@
 import React from "react";
 import "./Promo.css";
 import imgPeace from "../../../images/text__COLOR_landing-logo.svg";
+import NavTab from "../NavTab/NavTab"
 
 const Promo = () => {
     return (
@@ -26,7 +27,7 @@ const Promo = () => {
                         alt="Изображение интернет-глобуса"
                     />
                 </div>
-                <button className="promo__button">Узнать больше</button>
+                <NavTab />
             </div>
         </section>
     );
