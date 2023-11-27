@@ -8,6 +8,11 @@ import {
   DESKTOP_CARDS_DISPLAY_LIMIT,
   TABLET_CARDS_DISPLAY_LIMIT,
   MOBILE_CARDS_DISPLAY_LIMIT,
+  DESKTOP,
+  TABLET,
+  DESKTOP_COUNT_CARD,
+  TABLET_COUNT_CARD,
+  MOBILE_COUNT_CARD
 } from "../../../utils/constants";
 
 function MoviesCardList({
@@ -32,20 +37,20 @@ function MoviesCardList({
 
   function handleMovieShowCounterLimit() {
     const display = window.innerWidth;
-    if (display > 1279) {
-      setShownMovies(16);
-    } else if (display > 767) {
-      setShownMovies(8);
+    if (display > DESKTOP) {
+      setShownMovies(DESKTOP_COUNT_CARD);
+    } else if (display > TABLET) {
+      setShownMovies(TABLET_COUNT_CARD);
     } else {
-      setShownMovies(5);
+      setShownMovies(MOBILE_COUNT_CARD);
     }
   }
 
   function handleMovieWidthDisplay() {
     const display = window.innerWidth;
-    if (display > 1279) {
+    if (display > DESKTOP) {
       setShownMovies(shownMovies + DESKTOP_CARDS_DISPLAY_LIMIT);
-    } else if (display > 767) {
+    } else if (display > TABLET) {
       setShownMovies(shownMovies + TABLET_CARDS_DISPLAY_LIMIT);
     } else {
       setShownMovies(shownMovies + MOBILE_CARDS_DISPLAY_LIMIT);

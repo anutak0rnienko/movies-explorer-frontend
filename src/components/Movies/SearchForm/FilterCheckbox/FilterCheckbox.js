@@ -15,6 +15,9 @@ const FilterCheckbox = ({ onFilterMovies, isShortMovies }) => {
       </label>
       <span className="search__film">Короткометражки</span>
     </section>
+
+
+
   );
 };
 export default FilterCheckbox;
