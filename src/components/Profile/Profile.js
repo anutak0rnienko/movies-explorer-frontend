@@ -86,7 +86,7 @@ function Profile({ loggedIn, signOut, onUpdateUser, isLoading }) {
             disabled={!isFormValid ? true : false}
             className={
               !isFormValid || isLoading || isLastData
-                ? "profile__button-save profile__button-save_inactive"
+                ? "profile__button-save form__button-save_inactive"
                 : "profile__button-save"
             }
           >
