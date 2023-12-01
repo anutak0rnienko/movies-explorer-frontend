@@ -1,0 +1,120 @@
+.navigation__page-overlay {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .navigation__page-overlay {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    justify-content: space-between;
+  }
+
+  .navigation__menu {
+    box-sizing: border-box;
+    padding: 159px 90px 90px 90px;
+    width: 520px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #202020;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+  }
+
+  .navigation__overlay-wrapper {
+    flex: 1 1 auto;
+  }
+
+  .navigation__close-button {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    background-image: url("../../images/Group.svg");
+    width: 22px;
+    height: 22px;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .navigation__close-button:hover {
+    opacity: 0.6;
+  }
+
+  .navigation__links-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .navigation__link {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #fff;
+    width: max-content;
+    border-bottom: 2px solid transparent;
+  }
+
+  .navigation__link_active {
+    color: #2be080;
+  }
+
+  .navigation__link:hover {
+    border-bottom: 2px solid #fff;
+  }
+
+  .navigation__account-button {
+    text-decoration: none;
+    width: 100px;
+    height: 32px;
+    background: #202020;
+    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navigation__account-text {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #ffffff;
+    margin-right: 10px;
+  }
+
+  .navigation__account-button:hover {
+    opacity: 0.6;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navigation__menu {
+    padding: 144px 10px 46px 10px;
+    width: 100%;
+  }
+
+  .navigation__overlay-wrapper {
+    display: none;
+  }
+
+  .navigation__links-list {
+    gap: 15px;
+  }
+}
